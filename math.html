@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Калькулятор</title>
+</head>
+<body>
+ <h1>Калькулятор</h1>
+ <form>
+  <label for="x">Значение для x:</label>
+  <input type="number" id="x" name="x"><br><br>
+  <label for="n">Значение для n:</label>
+  <input type="number" id="n" name="n"><br><br>
+  <input type="button" value="Вычислить" onclick="calculate()"><br><br>
+  <label for="result">Результат:</label>
+  <input type="text" id="result" name="result" readonly>
+ </form>
+
+ <script>
+  function calculate() {
+   let x = parseFloat(document.getElementById('x').value);
+   let n = parseInt(document.getElementById('n').value);
+   let sum = 0;
+   let sign = 1;
+   for (let i=0; i<=n; i++) {
+    sum += sign * (Math.pow(x, i) / factorial(i));
+    sign *= -1;
+   }
+   document.getElementById('result').value = sum.toFixed(4);
+  }
+  function factorial(n) {
+   if (n == 0) {
+    return 1;
+   } else {
+    return n * factorial(n-1);
+   }
+  }
+ </script>
+</body>
+</html>
